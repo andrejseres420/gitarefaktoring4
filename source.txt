@@ -43,7 +43,10 @@ int main() {
 				
 			}
 		
-			
+				if (c == 'o' && ot != NULL)
+			{
+				o(ot);
+			}
 		 
 
 		}
