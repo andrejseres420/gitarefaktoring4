@@ -192,6 +192,64 @@ void p(char** arr, int l)
 	
  
 }
+void z(char** arr, int l)
+{
+	char** spz = malloc(sizeof(char*) * l); //do tohto pola ulozim vsetky spz
+	char** spz_p = malloc(sizeof(char*) * l); //do tohto uz unikatne SPZ 
+	for (int i = 0; i < l; i++)
+	{
+		spz[i] = malloc(sizeof(char) * 3);
+
+		spz_p[i] = malloc(sizeof(char) * 3);
+		sprintf(spz[i], "%c%c", arr[i][0], arr[i][1]); //prekopirovanie dvoch charov do pola charov
+		
+	}
+	int max = 0;
+	int p = 0;
+	for (int i = 0; i < l; i++)
+	{
+		for (int j = 0; j < l; j++)
+		{
+			if (strcmp(spz[i],spz[j])==0)
+			{
+				p++;
+				if (p > max)
+				{
+					max = p; //zistim najvacsi pocet opakovani jednej znacky
+				}
+			}
+		}
+		p = 0;
+
+	}
+	p = 0;
+	int r = 0;
+	int b = 1; //predpokladam, ze znacku som este nevypisal
+	for (int i = 0; i < l; i++)
+	{
+		for (int j = 0; j < l; j++)
+		{
+			if (strcmp(spz[i], spz[j]) == 0)
+			{
+				p++;
+				if (p == max) //maximum uz som zistil, opat porovnavam aka znacka sa kolkokrat vyskytuje v poli
+				{
+					for (int k = 0; k < r; k++)
+					{
+
+						if (strcmp(spz_p[k], spz[i])==0) { b = 0; }  //ak sa znacka nachadza v spz_p znamena ze som ju vypisal, B nastavim na 0/false
+					}
+					if (b == 1) printf("%s %d\n", spz[i], p); //b==1, znacka nebola vypisana, vypisem ju a s poctom jej opakovani
+					strcpy(spz_p[r], spz[i]);
+					b = 1;
+					r++;
+				}
+			}
+		}
+		p = 0;
+
+	}
+}
 	
 int main() {
 		
