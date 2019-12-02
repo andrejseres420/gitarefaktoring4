@@ -175,6 +175,11 @@ int main() {
 				if (arr == NULL) printf("Pole nie je vytvorene\n");
 				else s(arr, l, nove);
 			}
+			if (c == 's')
+			{
+				if (arr == NULL) printf("Pole nie je vytvorene\n");
+				else s(arr, l, nove);
+			}
 		 
 
 		}
