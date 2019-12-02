@@ -149,6 +149,26 @@ void m(char** arr, int l)
 		asci[i] = i; //zapis prvkov do asci
 		pocet[i] = 0; //zapis 0 na vsetky miesta poctu samostatnych znakov
 	}	
+			for (int j = 0; j < l; j++)
+		{
+			for (int k = 0; k <= 6; k++)
+			{
+				for (int i = 0; i < 127; i++)
+				{
+					if (arr[j][k] == asci[i]) { pocet[i]+=1; } //spocitanie kolkokrat sa opakuje 1 pismeno v poli a zvysenie jeho poctu na prislusnom mieste
+				}
+			}
+		}
+		int max = 0;
+		for (int i = 0; i < 127; i++)
+		{
+			if (pocet[i] > max) 
+			{
+				c = asci[i]; //zapamatam si aky znak sa najviac opakuje
+				max = pocet[i]; //zapamatam si kolkokrat sa opakuje
+			}
+		}
+		printf("%c %d\n", c, max); //samotny vypis najviac opakovaneho znaku a jeho pocet
 }
 	
 int main() {
