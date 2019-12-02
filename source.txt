@@ -131,7 +131,7 @@ int main() {
 		int l = 0;
 	    FILE* ot; 
 		ot = NULL;
-		k = 0; //false, pole nebolo alokovane
+		int k = 0; //false, pole nebolo alokovane
 		char** arr; //deklaracia dynmickeho pola, ktoremu sa venujem vo funkcii n
 		arr = NULL;
 		char c;
