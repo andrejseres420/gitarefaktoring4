@@ -222,7 +222,33 @@ void z(char** arr, int l)
 		p = 0;
 
 	}
-	
+	p = 0;
+	int r = 0;
+	int b = 1; //predpokladam, ze znacku som este nevypisal
+	for (int i = 0; i < l; i++)
+	{
+		for (int j = 0; j < l; j++)
+		{
+			if (strcmp(spz[i], spz[j]) == 0)
+			{
+				p++;
+				if (p == max) //maximum uz som zistil, opat porovnavam aka znacka sa kolkokrat vyskytuje v poli
+				{
+					for (int k = 0; k < r; k++)
+					{
+
+						if (strcmp(spz_p[k], spz[i])==0) { b = 0; }  //ak sa znacka nachadza v spz_p znamena ze som ju vypisal, B nastavim na 0/false
+					}
+					if (b == 1) printf("%s %d\n", spz[i], p); //b==1, znacka nebola vypisana, vypisem ju a s poctom jej opakovani
+					strcpy(spz_p[r], spz[i]);
+					b = 1;
+					r++;
+				}
+			}
+		}
+		p = 0;
+
+	}
 }
 	
 int main() {
