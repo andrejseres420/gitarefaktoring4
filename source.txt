@@ -85,6 +85,23 @@ void o(FILE* x) //posuniem do funkcie otvoreny subor
 	}
 	
 }
+char** n(FILE* x, int *i) {
+
+	
+	char p[256];
+	int d, r,k;
+	d = 1;
+	r = 1;
+	rewind(x);
+	while (fgets(p, 256, x) != NULL) {
+		if (d == 2) {
+			r++; //spocitanie zaznamov
+		}
+		if (d == 5) d = -1;
+		d++;
+		
+	}
+}	
 
 int main() {
 		
