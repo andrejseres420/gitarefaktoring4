@@ -170,6 +170,27 @@ void m(char** arr, int l)
 		}
 		printf("%c %d\n", c, max); //samotny vypis najviac opakovaneho znaku a jeho pocet
 }
+void p(char** arr, int l)
+{
+	int pravda = 1; //boolean-predpokladam ze spz je palindrom
+	for (int i = 0; i < l; i++)
+	{
+		for (int j = 0; j <= 6; j++)
+		{
+			if (arr[i][j] != arr[i][6 - j]) { pravda = 0; } //ak spz nie je palindrom pravda=0/false
+		}
+		if (pravda == 1) {
+			for (int j = 0; j <= 1; j++)
+			{
+				if (j == 0) printf("%c", arr[i][j]); 
+				if (j == 1) printf("%c\n", arr[i][j]); //vypisanie prvych dvoch znakov ak SPZ je palindrom
+			}
+			
+		}
+		pravda = 1; //znovu predpokladam ze SPZ je palindrom
+	}
+ 
+}
 	
 int main() {
 		
