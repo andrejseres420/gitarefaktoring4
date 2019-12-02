@@ -175,10 +175,10 @@ int main() {
 				if (arr == NULL) printf("Pole nie je vytvorene\n");
 				else s(arr, l, nove);
 			}
-			if (c == 's')
+			if (c == 'm')
 			{
 				if (arr == NULL) printf("Pole nie je vytvorene\n");
-				else s(arr, l, nove);
+				else m(arr, l);
 			}
 		 
 
