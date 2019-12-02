@@ -139,6 +139,18 @@ char** n(FILE* x, int *i) {
 			}
 		}
 	}
+void m(char** arr, int l)
+{
+	char asci[127]; // vsetky prvky asci
+	char pocet[127]; //pocet vsetkych prvkov
+	char c;
+	for (int i=0; i < 127; i++)
+	{
+		asci[i] = i; //zapis prvkov do asci
+		pocet[i] = 0; //zapis 0 na vsetky miesta poctu samostatnych znakov
+	}	
+}
+	
 int main() {
 		
 		
