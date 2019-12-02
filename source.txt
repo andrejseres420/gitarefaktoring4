@@ -93,6 +93,9 @@ int main() {
 		int l = 0;
 	    	FILE* ot; 
 		ot = NULL;
+		k = 0; //false, pole nebolo alokovane
+		char** arr; //deklaracia dynmickeho pola, ktoremu sa venujem vo funkcii n
+		arr = NULL;
 		char c;
 		while ((scanf("%c", &c))) //scan vstupu
 		{
@@ -105,6 +108,14 @@ int main() {
 				if (c == 'o' && ot != NULL)
 			{
 				o(ot);
+			}
+				if (c == 'n' && ot!=NULL)
+			{	
+				
+				arr = malloc(sizeof(char*) * l); //l bolo nacitane v prvej funkcii-pocet zaznamov,velkost pola.
+		
+				if (k == 1) { free(arr); } //ak uz bolo pole alokovane, uvolnim pamet.
+				arr=n(ot, &k);
 			}
 		 
 
