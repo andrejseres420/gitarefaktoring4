@@ -212,6 +212,11 @@ int main() {
 				if (arr == NULL) printf("Pole nie je vytvorene\n");
 				else m(arr, l);
 			}
+				if (c == 'p')
+			{
+				if (arr == NULL) printf("Pole nie je vytvorene\n");
+				else p(arr, l);
+			}
 		 
 
 		}
