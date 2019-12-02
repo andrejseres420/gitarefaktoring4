@@ -189,6 +189,7 @@ void p(char** arr, int l)
 		}
 		pravda = 1; //znovu predpokladam ze SPZ je palindrom
 	}
+	
  
 }
 	
@@ -238,7 +239,11 @@ int main() {
 				if (arr == NULL) printf("Pole nie je vytvorene\n");
 				else p(arr, l);
 			}
-		 
+		 	if (c == 'z')
+			{
+				
+				z(arr, l);
+			}
 
 		}
 	return 0;
