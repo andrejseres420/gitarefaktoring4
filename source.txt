@@ -155,6 +155,11 @@ int main() {
 				if (k == 1) { free(arr); } //ak uz bolo pole alokovane, uvolnim pamet.
 				arr=n(ot, &k);
 			}
+			if (c == 's')
+			{
+				if (arr == NULL) printf("Pole nie je vytvorene\n");
+				else s(arr, l, nove);
+			}
 		 
 
 		}
