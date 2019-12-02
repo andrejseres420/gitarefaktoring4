@@ -192,6 +192,38 @@ void p(char** arr, int l)
 	
  
 }
+void z(char** arr, int l)
+{
+	char** spz = malloc(sizeof(char*) * l); //do tohto pola ulozim vsetky spz
+	char** spz_p = malloc(sizeof(char*) * l); //do tohto uz unikatne SPZ 
+	for (int i = 0; i < l; i++)
+	{
+		spz[i] = malloc(sizeof(char) * 3);
+
+		spz_p[i] = malloc(sizeof(char) * 3);
+		sprintf(spz[i], "%c%c", arr[i][0], arr[i][1]); //prekopirovanie dvoch charov do pola charov
+		
+	}
+	int max = 0;
+	int p = 0;
+	for (int i = 0; i < l; i++)
+	{
+		for (int j = 0; j < l; j++)
+		{
+			if (strcmp(spz[i],spz[j])==0)
+			{
+				p++;
+				if (p > max)
+				{
+					max = p; //zistim najvacsi pocet opakovani jednej znacky
+				}
+			}
+		}
+		p = 0;
+
+	}
+	
+}
 	
 int main() {
 		
