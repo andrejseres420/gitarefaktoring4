@@ -26,6 +26,16 @@ FILE* v(int *w)
 	*w = r;//r je pocet zaznamov. spocital som ich tu, aby som si mohol vytvorit neskor dynamicke pole v maine
 	return subor; //vratim otvoreny subor (ktory som precital a je na konci)
 }
+void o(FILE* x) //posuniem do funkcie otvoreny subor
+{
+	rewind(x); //vratim sa na zaciatok suboru
+	 
+	char l[256]; //precitanie zadanej hodnoty datumu 
+ 
+ 
+	scanf("%s", &l);
+	 
+}
 
 int main() {
 		
