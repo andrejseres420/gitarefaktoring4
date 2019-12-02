@@ -159,6 +159,16 @@ void m(char** arr, int l)
 				}
 			}
 		}
+		int max = 0;
+		for (int i = 0; i < 127; i++)
+		{
+			if (pocet[i] > max) 
+			{
+				c = asci[i]; //zapamatam si aky znak sa najviac opakuje
+				max = pocet[i]; //zapamatam si kolkokrat sa opakuje
+			}
+		}
+		printf("%c %d\n", c, max); //samotny vypis najviac opakovaneho znaku a jeho pocet
 }
 	
 int main() {
