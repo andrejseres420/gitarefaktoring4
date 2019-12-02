@@ -26,6 +26,65 @@ FILE* v(int *w)
 	*w = r;//r je pocet zaznamov. spocital som ich tu, aby som si mohol vytvorit neskor dynamicke pole v maine
 	return subor; //vratim otvoreny subor (ktory som precital a je na konci)
 }
+FILE* v(int *w)
+{
+	FILE* subor;
+	if ((subor = fopen("autobazar.txt", "r")) == NULL)
+	{
+		printf("Neotvoreny subor");
+		return 0;
+	}
+	char p[256];
+	int r = 0;
+	double d = 1;
+	while (fgets(p, 256, subor) != NULL) { //precitanie zaznamu a vypis do konzole
+		if		(d == 1) { printf("meno a priezvisko: %s", p);}
+		else if (d == 2) { printf("SPZ: %s", p); r++; }
+		else if (d == 3) { printf("typ auta: %s", p); }
+		else if (d == 4) { printf("cena: %.2lf\n", atof(p)); }
+		else if (d == 5) { printf("datum: %s\n", p); d = -1; }
+		d++;
+		
+	}
+	*w = r;//r je pocet zaznamov. spocital som ich tu, aby som si mohol vytvorit neskor dynamicke pole v maine
+	return subor; //vratim otvoreny subor (ktory som precital a je na konci)
+}
+void o(FILE* x) //posuniem do funkcie otvoreny subor
+{
+	rewind(x); //vratim sa na zaciatok suboru
+	int d = 1;
+	char l[256]; //precitanie zadanej hodnoty datumu 
+	char p[256];
+	int a, a1, b, b1, c, c1;
+	double o;
+	char pole[5][256]; //meno,spz,znacka,cena,typ auta
+	scanf("%s", &l);
+	a = (l[0]- '0') * 1000 + (l[1] - '0') * 100 + (l[2] - '0') * 10 + (l[3] - '0');  
+	b = (l[4] - '0') * 10 + (l[5] - '0');
+	c = (l[6] - '0') * 10 + (l[7] - '0');  //prepis datumu zo zadaneho datumu,z pola char na int
+	while (fgets(p, 256, x) != NULL) {
+		if (d == 1)		 { p[strlen(p) - 1] = 0; strcpy(pole[0], p);} //vymazanie znaku noveho riadku v p a prekopirovanie zaznamov do pola
+		else if (d == 2) { p[strlen(p) - 1] = 0; strcpy(pole[1], p); }
+		else if (d == 3) { p[strlen(p) - 1] = 0; strcpy(pole[2], p); }
+		else if (d == 4) { p[strlen(p) - 1] = 0; strcpy(pole[3], p); }
+		else if (d == 5) { p[strlen(p) - 1] = 0; strcpy(pole[4], p); d = -1;
+		a1 = (p[0] - '0') * 1000 + (p[1] - '0') * 100 + (p[2] - '0') * 10 + (p[3] - '0');
+		b1 = (p[4] - '0') * 10 + (p[5] - '0');
+		c1 = (p[6] - '0') * 10 + (p[7] - '0');
+			if ((a - a1 >= 2) || (a-a1==1 && b-b1>=1) || (a - a1 == 1 && b - b1 >= 0 && c-c1>=0)) //porovnanie aktualneho datumu s datumom kedy zamestnanec zacal pracovat
+		{ 
+			if (strcmp(pole[2], "1")==0) { o = atof(pole[3])/100*2.3; } //nove auto? provizia 2.3%, stare 5.1%
+			else{ o = atof(pole[3]) / 100 * 5.1; } 
+			 
+			
+			printf("%s %s %.2lf\n", &pole[0], &pole[1], o); //samotny vypis na konzolu
+		}
+		}
+		d++;
+
+	}
+	
+}
 
 int main() {
 		
