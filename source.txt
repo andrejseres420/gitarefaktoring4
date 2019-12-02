@@ -85,6 +85,44 @@ void o(FILE* x) //posuniem do funkcie otvoreny subor
 	}
 	
 }
+char** n(FILE* x, int *i) {
+
+	
+	char p[256];
+	int d, r,k;
+	d = 1;
+	r = 1;
+	rewind(x);
+	while (fgets(p, 256, x) != NULL) {
+		if (d == 2) {
+			r++; //spocitanie zaznamov
+		}
+		if (d == 5) d = -1;
+		d++;
+		
+	}
+	rewind(x);
+	char** arr; //deklaracia dvojrozmerneho dynamickeho pola
+
+	arr = malloc(sizeof(char*) * r); //dynamicke alokovanie pola pola charov
+	r = 0;
+	d = 1;
+	while (fgets(p, 256, x) != NULL) {
+		if (d == 2) {
+			arr[r] = malloc(sizeof(char) * 7); //dynmacike inicializovanie samostatnych "stringov" (polia charov)
+			strcpy(arr[r], p); //prekopirovanie SPZ do pola
+			r++;
+		}
+		if (d == 5) d = -1;
+		d++;
+
+	}
+	k = 1; //pole bolo alokovane
+	*i = k;
+	return arr;
+
+}
+}	
 
 int main() {
 		
